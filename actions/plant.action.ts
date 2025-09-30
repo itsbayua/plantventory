@@ -58,3 +58,25 @@ export async function createPlant(data: Prisma.PlantCreateInput) {
         throw error;
     }
 }
+
+export async function editPlant(id: string, data: Prisma.PlantUpdateInput) {
+    try {
+        const currentUserId = await getUserId();
+        const updatedPlant = await prisma.plant.update({
+            where: { id },
+            data: {
+                ...data,
+                userId: currentUserId,
+            },
+        });
+
+        if (updatedPlant) {
+            revalidatePath("/plants");
+        } else {
+            throw new Error("Plant not found");
+        }
+    } catch (error) {
+        console.error("Error Updating Plant:", error);
+        throw error;
+    }
+}
