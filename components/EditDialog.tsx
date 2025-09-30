@@ -18,6 +18,7 @@ import { Textarea } from "./ui/textarea";
 import { Combobox } from "./ui/combo-box";
 import { editPlant, getPlantById } from "@/actions/plant.action";
 import toast from "react-hot-toast";
+import ImageUpload from "./ImageUpload";
 
 type Plant = NonNullable<Awaited<ReturnType<typeof getPlantById>>>;
 interface EditDialogProps {
@@ -141,16 +142,15 @@ export default function EditDialog({ plant }: EditDialogProps) {
                     </div>
 
                     {/*Image Upload*/}
-                    {/* <div className="py-5">
+                    <div className="py-5">
                         <ImageUpload
-                            endpoint="postImage"
+                            endpoint="imageUploader"
                             value={formData.imageUrl}
                             onChange={(url) => {
                                 handleChange("imageUrl", url);
                             }}
                         />
-                    </div> */}
-                    <h1>Image upload</h1>
+                    </div>
 
                     <AlertDialogFooter>
                         <AlertDialogCancel>Cancel</AlertDialogCancel>

@@ -7,9 +7,10 @@ import { SignIn } from "@stackframe/stack";
 export async function generateMetadata({
     params,
 }: {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }) {
-    const [id] = params.slug.split("--");
+    const slugValue = (await params).slug;
+    const [id] = slugValue.split("--");
     const plant = await getPlantById(id);
     return {
         title: plant ? plant.name : "Plant Details",

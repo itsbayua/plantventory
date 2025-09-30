@@ -43,7 +43,6 @@ export default function RootLayout({
                             <Toaster />
                             <Navbar />
                             {children}
-                            <h1>Footer</h1>
                         </ThemeProvider>
                     </StackTheme>
                 </StackProvider>
