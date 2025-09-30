@@ -29,3 +29,10 @@ export async function getPlants(searchTerm?: string) {
         throw new Error("Failed to fetch plants");
     }
 }
+
+export async function getPlantById(id: string) {
+    // Example using Prisma; adjust based on your data layer
+    return await prisma.plant.findUnique({
+        where: { id },
+    });
+}

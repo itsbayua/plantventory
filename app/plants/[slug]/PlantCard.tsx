@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/card";
 
 import { Badge } from "../../../components/ui/badge";
-import { getPlantById } from "@/actions/plant.aciton";
+import { getPlantById } from "@/actions/plant.action";
 
 type Plant = Awaited<ReturnType<typeof getPlantById>>;
 
